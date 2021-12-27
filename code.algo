@@ -1,0 +1,22 @@
+ALGORITHM analyse_sentence
+VAR
+    sentence:STRING;
+    vowels : ARRAY_OF int[6];
+    numberOfCharacters,numberOfVowels,numberOfWords:INTEGER;
+BEGIN   
+    sentence:= "lorem ipsum dolor sit amet, consectetur adipisicing elit.";
+        vowels:=["a","e","i","o","u","y"];
+        numberOfCharacters:= length(sentence);
+        FOR i FROM 0 TO length(sentence) STEP 1 DO
+            FOR j FROM 0 TO length(vowels) STEP 1 DO
+                IF (sentence[i]==vowels[j]) THEN
+                    numberOfVowels++;
+                END_IF
+            END_FOR
+        END_FOR
+        FOR i FROM 0 TO length(sentence) STEP 1 DO
+            IF (sentence[i]==" ") THEN
+                numberOfWords++;
+            END_IF
+        END_FOR
+END
